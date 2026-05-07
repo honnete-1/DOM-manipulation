@@ -20,11 +20,20 @@
 
           <ul id="navMenu" class="nav-menu">
 
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Categories</a></li>
+            <li><a href="#" class="nav-link active">Home</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+            
+            <!-- DROPDOWN FIXED HERE: Nested neatly inside your nav links container -->
+            <li class="dropdown">
+              <button id="dropdownBtn" class="dropdown-btn">Categories ▼</button>
+              <ul id="dropdownMenu" class="dropdown-menu hidden">
+                  <li><a href="#">Outdoor</a></li>
+                  <li><a href="#">Indoor</a></li>
+                  <li><a href="#">Food & Dining</a></li>
+              </ul>
+            </li>
 
           </ul>
 
@@ -93,22 +102,22 @@
                 <div class="activity-card">
                     <h3>Kigali City Tour</h3>
                     <p>Explore beautiful places around Kigali and enjoy amazing experiences.</p>
-                    <button class="cardBtn">Add Activity</button>
+                    <button class="cardBtn" data-activity="Kigali City Tour">Add Activity</button>
                 </div>
                 <div class="activity-card">
-                    <h3>Kigali City Tour</h3>
-                    <p>Explore beautiful places around Kigali and enjoy amazing experiences.</p>
-                    <button class="cardBtn">Add Activity</button>
+                    <h3>Mountain Hiking</h3>
+                    <p>Enjoy outdoor adventures, fresh air, and exciting hiking experiences with friends.</p>
+                    <button class="cardBtn" data-activity="Mountain Hiking">Add Activity</button>
                 </div>
                 <div class="activity-card">
-                    <h3>Kigali City Tour</h3>
-                    <p>Explore beautiful places around Kigali and enjoy amazing experiences.</p>
-                    <button class="cardBtn">Add Activity</button>
+                    <h3>Food Experience</h3>
+                    <p>Discover delicious local and international meals from popular restaurants and cafes.</p>
+                    <button class="cardBtn" data-activity="Food Experience">Add Activity</button>
                 </div>
                 <div class="activity-card">
-                    <h3>Kigali City Tour</h3>
-                    <p>Explore beautiful places around Kigali and enjoy amazing experiences.</p>
-                    <button class="cardBtn">Add Activity</button>
+                    <h3>Movie Night</h3>
+                    <p>Relax and enjoy trending movies, snacks, and entertainment with your favorite people.</p>
+                    <button class="cardBtn" data-activity="Movie Night">Add Activity</button>
                 </div>
 
 
@@ -124,5 +133,6 @@
     © 2026 Activity Planner. All rights reserved.
   </p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

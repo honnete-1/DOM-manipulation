@@ -1,3 +1,4 @@
+/* Resetting basic margins and paddings */
 * {
   margin: 0;
   padding: 0;
@@ -6,19 +7,32 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f7fb;
-  color: #1f2937;
+  background-color: #faf9f6; /* soft whitish beige background */
+  color: #2d3748; /* dark gray for easy reading */
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* NAVBAR */
+/* DARK MODE BODY OVERRIDE */
+body.dark-mode {
+  background-color: #0b132b; /* deep dark midnight blue */
+  color: #f7fafc; /* crisp white text */
+}
+
+/* NAVBAR SECTION */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e3a8a;
-  color: white;
+  background-color: #e0f2fe; /* very light pastel blue */
+  color: #1e3a8a; /* deep blue text for light mode navbar */
   padding: 18px 8%;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+body.dark-mode .navbar {
+  background-color: #1c2541; /* dark slate navy for navbar */
+  color: white;
 }
 
 .logo {
@@ -34,17 +48,29 @@ body {
 }
 
 .nav-menu a {
-  color: white;
+  color: #475569; /* slate gray links */
   text-decoration: none;
   font-size: 15px;
 }
 
+body.dark-mode .nav-menu a {
+  color: #cbd5e1; /* light silver links in dark mode */
+}
+
+.nav-menu a:hover {
+  color: #db2777; /* pretty pastel pink hint on hover */
+}
+
+body.dark-mode .nav-menu a:hover {
+  color: #38bdf8; /* bright blue sky link hover for dark mode */
+}
+
 .nav-link.active {
-  color: #facc15;
+  color: #db2777; /* active state pink marker */
   font-weight: bold;
 }
 
-/* DROPDOWN */
+/* DROPDOWN MENU */
 .dropdown {
   position: relative;
 }
@@ -52,9 +78,25 @@ body {
 .dropdown-btn {
   background: none;
   border: none;
-  color: white;
+  color: #475569; /* matches the gray of Home, About, Services */
   font-size: 15px;
   cursor: pointer;
+  padding: 0;      /* removes standard button padding */
+}
+
+/* Force it to look white when dark mode kicks in later */
+body.dark-mode .dropdown-btn {
+  color: white;
+}
+
+/* Give it that nice pink text hover highlight just like the links */
+.dropdown-btn:hover {
+  color: #db2777; 
+  background: none !important; /* ensures no dark background boxes show up */
+}
+
+body.dark-mode .dropdown-btn:hover {
+  color: #38bdf8;
 }
 
 .dropdown-menu {
@@ -66,7 +108,11 @@ body {
   padding: 12px;
   border-radius: 8px;
   width: 190px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #1c2541;
 }
 
 .dropdown-menu li {
@@ -81,12 +127,17 @@ body {
   color: #1e3a8a;
 }
 
-/* JS helper class */
+body.dark-mode .dropdown-menu a {
+  color: white;
+}
+
+/* Class to hide elements with JS */
 .hidden {
   display: none;
 }
 
-/* HAMBURGER */
+
+/* HAMBURGER MENU BUTTON */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -99,19 +150,28 @@ body {
 .hamburger-line {
   width: 28px;
   height: 3px;
-  background-color: white;
+  background-color: #1e3a8a;
   border-radius: 5px;
 }
 
-/* HERO */
+body.dark-mode .hamburger-line {
+  background-color: white;
+}
+
+/* HERO SECTION */
 .hero {
   min-height: 420px;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  background: linear-gradient(135deg, #fce7f3, #e0f2fe); /* gentle pink to light blue gradient */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 60px 8%;
   text-align: center;
+  color: #1e3a8a; /* deep navy text */
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #1c2541, #0b132b); /* dark blue theme gradient */
   color: white;
 }
 
@@ -128,6 +188,11 @@ body {
   font-size: 18px;
   line-height: 1.7;
   margin-bottom: 30px;
+  color: #475569;
+}
+
+body.dark-mode .hero p {
+  color: #e2e8f0;
 }
 
 .hero-buttons {
@@ -140,20 +205,280 @@ body {
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  background-color: #facc15;
-  color: #1e3a8a;
+  background-color: #db2777; /* premium pink button */
+  color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-.hero-buttons button:last-child {
-  background-color: white;
+.hero-buttons button:hover {
+  background-color: #be185d;
 }
 
-/* RESPONSIVE */
+body.dark-mode .hero-buttons button {
+  background-color: #38bdf8; /* sharp cyan button for contrast in dark mode */
+  color: #0b132b;
+}
+
+body.dark-mode .hero-buttons button:hover {
+  background-color: #0ea5e9;
+}
+
+.hero-buttons button:last-child {
+  background-color: white;
+  color: #1e3a8a;
+  border: 1px solid #cbd5e1;
+}
+
+body.dark-mode .hero-buttons button:last-child {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* MAIN CONTENT AREA */
+main {
+  padding: 60px 8%;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+section h2 {
+  font-size: 28px;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+body.dark-mode section h2 {
+  color: #38bdf8;
+}
+
+/* INPUTS AND STANDARD BUTTONS */
+input {
+  padding: 12px;
+  width: 260px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin-right: 10px;
+  outline: none;
+  background-color: white;
+  color: #2d3748;
+}
+
+body.dark-mode input {
+  background-color: #1c2541;
+  border-color: #475569;
+  color: white;
+}
+
+input:focus {
+  border-color: #db2777;
+}
+
+body.dark-mode input:focus {
+  border-color: #38bdf8;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e3a8a; /* default dark blue button */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #111827;
+}
+
+body.dark-mode button {
+  background-color: #38bdf8;
+  color: #0b132b;
+}
+
+body.dark-mode button:hover {
+  background-color: #0ea5e9;
+}
+
+/* Containers for different features */
+.text-section,
+.theme-section,
+.input-section,
+.list-section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9; /* clean soft borders */
+}
+
+body.dark-mode .text-section,
+body.dark-mode .theme-section,
+body.dark-mode .input-section,
+body.dark-mode .list-section {
+  background-color: #1c2541; /* dark blue card background */
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific theme toggle button adjustments */
+#themeBtn {
+  background-color: #db2777;
+}
+
+#themeBtn:hover {
+  background-color: #be185d;
+}
+
+body.dark-mode #themeBtn {
+  background-color: #38bdf8;
+  color: #0b132b;
+}
+
+/* ACTIVITY LIST STYLES */
+#activityList {
+  margin-top: 20px;
+  list-style: none;
+}
+
+#activityList li {
+  background-color: #f1f5f9; /* cool gray rows */
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border-left: 4px solid #db2777; /* left border pink accent color */
+  color: #2d3748;
+}
+
+body.dark-mode #activityList li {
+  background-color: #0b132b;
+  color: #e2e8f0;
+  border-left-color: #38bdf8;
+}
+
+#activityList li:hover {
+  background-color: #fce7f3; /* soft pink hover row look */
+}
+
+body.dark-mode #activityList li:hover {
+  background-color: #232d4b;
+}
+
+/* CARDS DISPLAY SECTION */
+.cards-section {
+  padding: 20px 0;
+}
+
+.cards-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.activity-card {
+  background-color: white;
+  padding: 28px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
+}
+
+body.dark-mode .activity-card {
+  background-color: #1c2541;
+  border-color: #334155;
+}
+
+.activity-card h3 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+body.dark-mode .activity-card h3 {
+  color: #38bdf8;
+}
+
+.activity-card p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #64748b;
+}
+
+body.dark-mode .activity-card p {
+  color: #cbd5e1;
+}
+
+/* card action button */
+.cardBtn {
+  width: 100%;
+  background-color: #db2777;
+}
+
+.cardBtn:hover {
+  background-color: #be185d;
+}
+
+body.dark-mode .cardBtn {
+  background-color: #38bdf8;
+  color: #0b132b;
+}
+
+body.dark-mode .cardBtn:hover {
+  background-color: #0ea5e9;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+body.dark-mode footer {
+  background-color: #1c2541;
+  border-top: 1px solid #334155;
+}
+
+/* RESPONSIVE STYLES FOR TABLETS AND MOBILE */
+@media (max-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Force the icon to the far right using absolute positioning */
   .hamburger {
     display: flex;
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;             /* Override global mobile button width */
+    background: none;        /* Remove standard button container default colors */
+  }
+
+  /* Stop global mobile hover backgrounds from overriding the hamburger button */
+  .hamburger:hover {
+    background: none !important;
   }
 
   .nav-menu {
@@ -162,13 +487,17 @@ body {
     top: 65px;
     right: 8%;
     width: 220px;
-    background-color: #1e3a8a;
+    background-color: #e0f2fe;
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
     border-radius: 10px;
     gap: 16px;
     z-index: 10;
+  }
+
+  body.dark-mode .nav-menu {
+    background-color: #1c2541;
   }
 
   .nav-menu.show {
@@ -181,15 +510,26 @@ body {
     margin-top: 10px;
   }
 
-  .hero h2 {
-    font-size: 32px;
+  main {
+    padding: 40px 5%;
   }
 
-  .hero p {
-    font-size: 16px;
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
   }
 
-  .hero-buttons {
-    flex-direction: column;
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  section h2 {
+    font-size: 24px;
   }
 }
