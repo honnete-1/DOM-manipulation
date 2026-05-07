@@ -9,11 +9,13 @@ hamburgerBtn.addEventListener("click", function(){
 const dropdownBtn = document.getElementById("dropdownBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
+// Toggle dropdown open/close when the button is clicked
 dropdownBtn.addEventListener("click", function(event) {
-    event.stopPropagation(); 
+    event.stopPropagation(); // prevent click from bubbling to document close listener
     dropdownMenu.classList.toggle("hidden");
 });
 
+// Close dropdown when user clicks anywhere else on the page
 document.addEventListener("click", function() {
     if (!dropdownMenu.classList.contains("hidden")) {
         dropdownMenu.classList.add("hidden");
@@ -118,10 +120,16 @@ const themeBtn = document.getElementById("themeBtn");
 
 // Step 2: Add click event listener to the button
 themeBtn.addEventListener("click", function() {
-    
+
     // Step 3: Toggle the 'dark-mode' class on the body tag
     document.body.classList.toggle("dark-mode");
-    
+
+    // Step 4: Update button label to reflect the current mode
+    if (document.body.classList.contains("dark-mode")) {
+        themeBtn.textContent = "Toggle Light Mode";
+    } else {
+        themeBtn.textContent = "Toggle Dark Mode";
+    }
 });
 
 // FEATURE 6: INPUT DISPLAY
