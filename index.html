@@ -41,8 +41,8 @@
                 <h2>Plan Your Perfect Activities Easily</h2>
                 <p>Discover exciting activities, organize your plans, and build your personal activity list in one interactive form</p>
                 <div class="hero-buttons">
-                    <button onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">Explore Activities</button>
-                    <button onclick="document.getElementById('my-list').scrollIntoView({behavior:'smooth'})">Add Activity</button>
+                    <button>Explore Activities</button>
+                    <button>Add Activity</button>
                 </div>
             </div>
         </section>
@@ -94,25 +94,25 @@
         <section class="cards-section" id="activities">
             <h2>Popular Activities</h2>
             <div class="cards-container">
-                <div class="activity-card">
+                <div class="activity-card" data-category="outdoor">
                     <h3>Kigali City Tour</h3>
                     <p>Explore beautiful places around Kigali and enjoy amazing experiences.</p>
-                    <button class="cardBtn" data-activity="Kigali City Tour">Add Activity</button>
+                    <button class="cardBtn" data-activity="Kigali City Tour" data-category="outdoor">Add Activity</button>
                 </div>
-                <div class="activity-card">
+                <div class="activity-card" data-category="outdoor">
                     <h3>Mountain Hiking</h3>
                     <p>Enjoy outdoor adventures, fresh air, and exciting hiking experiences with friends.</p>
-                    <button class="cardBtn" data-activity="Mountain Hiking">Add Activity</button>
+                    <button class="cardBtn" data-activity="Mountain Hiking" data-category="outdoor">Add Activity</button>
                 </div>
-                <div class="activity-card">
+                <div class="activity-card" data-category="food">
                     <h3>Food Experience</h3>
                     <p>Discover delicious local and international meals from popular restaurants and cafes.</p>
-                    <button class="cardBtn" data-activity="Food Experience">Add Activity</button>
+                    <button class="cardBtn" data-activity="Food Experience" data-category="food">Add Activity</button>
                 </div>
-                <div class="activity-card">
+                <div class="activity-card" data-category="indoor">
                     <h3>Movie Night</h3>
                     <p>Relax and enjoy trending movies, snacks, and entertainment with your favorite people.</p>
-                    <button class="cardBtn" data-activity="Movie Night">Add Activity</button>
+                    <button class="cardBtn" data-activity="Movie Night" data-category="indoor">Add Activity</button>
                 </div>
             </div>
         </section>

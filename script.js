@@ -3,7 +3,78 @@ const navMenu= document.getElementById("navMenu");
 
 hamburgerBtn.addEventListener("click", function(){
     navMenu.classList.toggle("show");
-})
+});
+
+// FEATURE 2: DROPDOWN MENU TOGGLE
+const dropdownBtn = document.getElementById("dropdownBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+dropdownBtn.addEventListener("click", function(event) {
+    event.stopPropagation(); 
+    dropdownMenu.classList.toggle("hidden");
+});
+
+document.addEventListener("click", function() {
+    if (!dropdownMenu.classList.contains("hidden")) {
+        dropdownMenu.classList.add("hidden");
+    }
+});
+
+// CATEGORY FILTER: Filter activity cards when a dropdown option is clicked
+const dropdownLinks = dropdownMenu.querySelectorAll("a");
+const allCards = document.querySelectorAll(".activity-card");
+
+// Map dropdown label text to data-category values on the cards
+const categoryMap = {
+    "outdoor": "outdoor",
+    "indoor": "indoor",
+    "food & dining": "food"
+};
+
+dropdownLinks.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const selected = this.textContent.toLowerCase(); // e.g. "outdoor"
+        const categoryKey = categoryMap[selected];
+
+        // Update the dropdown button label to show what's active
+        dropdownBtn.textContent = this.textContent + " ▼";
+
+        // Show matching cards, hide non-matching ones
+        allCards.forEach(function(card) {
+            if (categoryKey === card.getAttribute("data-category")) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        // Close the dropdown after selection
+        dropdownMenu.classList.add("hidden");
+
+        // Scroll smoothly down to the cards section
+        document.getElementById("activities").scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+// "All" reset: add a reset option dynamically so user can show all cards again
+const resetLi = document.createElement("li");
+const resetLink = document.createElement("a");
+resetLink.href = "#";
+resetLink.textContent = "All Activities";
+resetLink.style.fontWeight = "bold";
+resetLi.appendChild(resetLink);
+dropdownMenu.insertBefore(resetLi, dropdownMenu.firstChild);
+
+resetLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    allCards.forEach(function(card) {
+        card.style.display = "block";
+    });
+    dropdownBtn.textContent = "Categories ▼";
+    dropdownMenu.classList.add("hidden");
+});
 
 const navLinks= document.querySelectorAll(".nav-menu .nav-link")
 navLinks.forEach(function(link) {
@@ -204,9 +275,3 @@ addActivityBtn.addEventListener("click", function() {
         listInputBox.focus();
     }
 });
-
-
-
-
-
-
