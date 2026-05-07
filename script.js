@@ -126,6 +126,55 @@ activityList.addEventListener("click", function(event) {
     }
 });
 
+// FEATURE 9: SEARCH FILTER
+
+
+// Step 1: Select the search input field element
+const searchInput = document.getElementById("searchInput");
+
+// Step 2: Add an 'input' event listener to capture typing in real time
+searchInput.addEventListener("input", function() {
+    
+    // Step 3: Convert the typed search text to lowercase so case doesn't matter
+    const filterText = searchInput.value.toLowerCase();
+    
+    // Step 4: Grab all the current list items inside your activity list
+    const items = activityList.getElementsByTagName("li");
+    
+    // Step 5: Loop through each list item to see if it matches
+    for (let i = 0; i < items.length; i++) {
+        const itemText = items[i].textContent.toLowerCase();
+        
+        // Step 6: If the item text contains the search query, show it. Otherwise, hide it.
+        if (itemText.includes(filterText)) {
+            items[i].classList.remove("hidden");
+        } else {
+            items[i].classList.add("hidden");
+        }
+    }
+});
+
+// Feature 10 Activity card interaction
+
+const cardButtons = document.querySelectorAll(".cardBtn");
+
+cardButtons.forEach(function(button){
+    button.addEventListener("click", function(){
+
+        const activity= this.getAttribute("data-activity");
+
+        const cardLi = document.createElement("li");
+
+        cardLi.textContent = activity;
+
+        activityList.appendChild(cardLi);
+
+        console.log("Added from popoular cards: " + activity);
+    });
+    
+});
+
+
 
 
 
