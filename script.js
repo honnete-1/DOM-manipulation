@@ -110,5 +110,22 @@ addItemBtn.addEventListener("click", function() {
     }
 });
 
+// 
+// FEATURE 8: TOGGLE DONE (STRIKE THROUGH)
+// 
+activityList.addEventListener("click", function(event) {
+    if (event.target.tagName === "LI") {
+        // Toggle text strike-through on and off directly on the item
+        if (event.target.style.textDecoration === "line-through") {
+            event.target.style.textDecoration = "none";
+            event.target.style.opacity = "1";
+        } else {
+            event.target.style.textDecoration = "line-through";
+            event.target.style.opacity = "0.5"; /* dims the item slightly */
+        }
+    }
+});
+
+
 
 
