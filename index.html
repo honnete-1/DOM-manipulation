@@ -4,100 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Activity Planner</title>
 </head>
 <body>
     <header>
-        <!-- nav goes here -->
-         <nav class="navbar"> 
-         <h1>Activity Planner</h1>
-          <button id="hamburgerBtn" class="hamburger">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+        <nav class="navbar">
+            <h1 class="logo">Activity Planner</h1>
 
-          </button>
+            <button id="hamburgerBtn" class="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
 
-          <ul id="navMenu" class="nav-menu">
+            <ul id="navMenu" class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#activities" class="nav-link">Activities</a></li>
+                <li><a href="#my-list" class="nav-link">My List</a></li>
+                <li><a href="#theme" class="nav-link">Theme</a></li>
 
-            <li><a href="#" class="nav-link active">Home</a></li>
-            <li><a href="#" class="nav-link">About</a></li>
-            <li><a href="#" class="nav-link">Services</a></li>
-            <li><a href="#" class="nav-link">Contact</a></li>
-            
-            <!-- DROPDOWN FIXED HERE: Nested neatly inside your nav links container -->
-            <li class="dropdown">
-              <button id="dropdownBtn" class="dropdown-btn">Categories ▼</button>
-              <ul id="dropdownMenu" class="dropdown-menu hidden">
-                  <li><a href="#">Outdoor</a></li>
-                  <li><a href="#">Indoor</a></li>
-                  <li><a href="#">Food & Dining</a></li>
-              </ul>
-            </li>
-
-          </ul>
-
+                <!-- Dropdown — required by assignment -->
+                <li class="dropdown">
+                    <button id="dropdownBtn" class="dropdown-btn">Categories ▼</button>
+                    <ul id="dropdownMenu" class="dropdown-menu hidden">
+                        <li><a href="#activities">Outdoor</a></li>
+                        <li><a href="#activities">Indoor</a></li>
+                        <li><a href="#activities">Food &amp; Dining</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
 
-        <section class="hero"> 
+        <!-- Hero Section -->
+        <section class="hero" id="home">
             <div class="hero-content">
                 <h2>Plan Your Perfect Activities Easily</h2>
                 <p>Discover exciting activities, organize your plans, and build your personal activity list in one interactive form</p>
                 <div class="hero-buttons">
-                    <button>Explore Activities</button>
-                    <button>Add Activity</button>
+                    <button onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">Explore Activities</button>
+                    <button onclick="document.getElementById('my-list').scrollIntoView({behavior:'smooth'})">Add Activity</button>
                 </div>
             </div>
         </section>
     </header>
+
     <main>
-        <!-- all interactive sessions goes here -->
-         
+
         <!-- Text Manipulation Section -->
-
-        <section class="text-section">
+        <section class="text-section" id="text-manipulation">
             <h2>Text Manipulation</h2>
-
-            <p id="introText">
-                Planning activities helps people stay organized and productive.
-            </p>
+            <p id="introText">Planning activities helps people stay organized and productive.</p>
             <button id="changeTextBtn">Change Text</button>
-
         </section>
 
-        <!-- Dark Mode Section -->
-         <section class="theme-section">
+        <!-- Theme Switcher Section -->
+        <section class="theme-section" id="theme">
             <h2>Theme Switcher</h2>
             <button id="themeBtn">Toggle Dark Mode</button>
-      
-
+        </section>
 
         <!-- Input & Display Section -->
-         <h2>User Input</h2>
-         <input type="text" id="nameInput" placeholder="Enter your activity name">
-         <button id="displayBtn">Display activity</button>
-         <p id="displayText"></p>
+        <section class="input-section">
+            <h2>User Input</h2>
+            <div class="input-row">
+                <input type="text" id="nameInput" placeholder="Enter your activity name">
+                <button id="displayBtn">Display Activity</button>
+            </div>
+            <p id="displayText"></p>
         </section>
 
         <!-- Dynamic List Section -->
-         <section class="list-section">
+        <section class="list-section" id="my-list">
             <h2>Activity List</h2>
-            <input type="text" id="itemInput" placeholder="Add new activity">
-            <button id="addItemBtn">Add activity</button>
-            
-            <br><br>
-            <input type="text" id="searchInput" placeholder="search activities">
-
+            <div class="input-row">
+                <input type="text" id="itemInput" placeholder="Add new activity">
+                <button id="addItemBtn">Add Activity</button>
+            </div>
+            <div class="search-row">
+                <input type="text" id="searchInput" placeholder="Search activities">
+            </div>
             <ul id="activityList">
                 <li>Visit Kigali Museum</li>
                 <li>Go Hiking</li>
                 <li>Watch a Movie</li>
             </ul>
-         </section>
+        </section>
 
-        <!-- Activity Cards Section  -->
-         <section class="cards-section">
-            <h2>Popular activities</h2>
+        <!-- Activity Cards Section -->
+        <section class="cards-section" id="activities">
+            <h2>Popular Activities</h2>
             <div class="cards-container">
                 <div class="activity-card">
                     <h3>Kigali City Tour</h3>
@@ -119,20 +114,15 @@
                     <p>Relax and enjoy trending movies, snacks, and entertainment with your favorite people.</p>
                     <button class="cardBtn" data-activity="Movie Night">Add Activity</button>
                 </div>
-
-
-
             </div>
-         </section>
+        </section>
 
     </main>
+
     <footer>
-        <!-- footer content goes here -->
-         
-  <p>
-    © 2026 Activity Planner. All rights reserved.
-  </p>
+        <p>&copy; 2026 Activity Planner. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

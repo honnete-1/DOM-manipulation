@@ -248,6 +248,18 @@ section {
 section h2 {
   font-size: 28px;
   color: #1e3a8a;
+  margin-bottom: 24px;
+}
+
+/* Input + button rows inside list section */
+.list-section .input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.list-section .search-row {
   margin-bottom: 20px;
 }
 
@@ -261,7 +273,7 @@ input {
   width: 260px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  margin-right: 10px;
+  margin-right: 12px;
   outline: none;
   background-color: white;
   color: #2d3748;
@@ -310,10 +322,39 @@ body.dark-mode button:hover {
 .input-section,
 .list-section {
   background-color: white;
-  padding: 30px;
+  padding: 36px 40px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-  border: 1px solid #f1f5f9; /* clean soft borders */
+  border: 1px solid #f1f5f9;
+}
+
+/* Paragraph text inside sections */
+.text-section p,
+.theme-section p,
+.list-section p {
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 0;
+}
+
+/* Push buttons away from the text/heading above them */
+.text-section button,
+.theme-section > #themeBtn {
+  margin-top: 20px;
+  display: inline-block;
+  width: auto;
+}
+
+/* Displayed output text spacing */
+#displayText {
+  margin-top: 16px;
+  font-weight: 500;
+  color: #1e3a8a;
+  min-height: 24px;
+}
+
+body.dark-mode #displayText {
+  color: #38bdf8;
 }
 
 body.dark-mode .text-section,
@@ -451,6 +492,27 @@ body.dark-mode footer {
 }
 
 /* RESPONSIVE STYLES FOR TABLETS AND MOBILE */
+/* Extra small screens — prevent logo from pushing into hamburger */
+@media (max-width: 400px) {
+  .logo,
+  .navbar h1 {
+    font-size: 17px;
+  }
+
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .hamburger {
+    right: 5%;
+  }
+
+  .nav-menu {
+    right: 5%;
+    width: calc(100% - 10%);
+  }
+}
+
 @media (max-width: 992px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
@@ -514,15 +576,38 @@ body.dark-mode footer {
     padding: 40px 5%;
   }
 
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
   input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     margin-right: 0;
   }
 
-  button {
+  /* Only make content-area buttons full width, NOT hamburger or hero buttons */
+  main button,
+  .theme-section button,
+  .text-section button,
+  .input-section button,
+  .list-section button,
+  .cardBtn {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-buttons button {
+    width: 80%;
+    margin-bottom: 0;
   }
 
   .cards-container {
