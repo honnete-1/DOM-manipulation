@@ -174,6 +174,38 @@ cardButtons.forEach(function(button){
     
 });
 
+// FEATURE 11: HERO BUTTONS SCROLL ACTIONS
+
+// Step 1: Target the parent hero button wrapper and select both buttons inside it
+const heroBtnContainer = document.querySelector(".hero-buttons");
+const exploreBtn = heroBtnContainer.querySelector("button:first-child");
+const addActivityBtn = heroBtnContainer.querySelector("button:last-child");
+
+// Step 2: Add click event listener to the "Explore Activities" button
+exploreBtn.addEventListener("click", function() {
+    // Select the popular cards section element
+    const cardsSection = document.querySelector(".cards-section");
+    
+    // Step 3: Smoothly scroll the window down to the cards container position
+    cardsSection.scrollIntoView({ behavior: "smooth" });
+});
+
+// Step 4: Add click event listener to the "Add Activity" button
+addActivityBtn.addEventListener("click", function() {
+    // Select the dynamic activity list section element
+    const listSection = document.querySelector(".list-section");
+    
+    // Step 5: Smoothly scroll the window down to the list inputs container
+    listSection.scrollIntoView({ behavior: "smooth" });
+    
+    // Step 6: Automatically put the typing cursor focus inside the list input box
+    const listInputBox = document.getElementById("itemInput");
+    if (listInputBox) {
+        listInputBox.focus();
+    }
+});
+
+
 
 
 
